@@ -1,0 +1,8 @@
+rootProject.name = 'demo5temporal'
+
+include 'asharedlib'
+include 'payment'
+include 'inventory'
+include 'shipment'
+include 'order'
+
