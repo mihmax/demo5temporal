@@ -1,20 +1,11 @@
 package ua.dp.maxym.demo4.inventory.kafka.consumer;
 
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import ua.dp.maxym.demo5.dto.InventoryAsset;
-import ua.dp.maxym.demo5.dto.Initialize;
-import ua.dp.maxym.demo4.kafka.events.CollectingGoodsFailed;
-import ua.dp.maxym.demo4.kafka.events.CollectingGoodsSucceeded;
-import ua.dp.maxym.demo4.kafka.producer.InventoryProducer;
-import ua.dp.maxym.demo4.inventory.domain.Inventory;
-import ua.dp.maxym.demo4.inventory.domain.InventoryRepository;
 
 @Component
 public class InventoryConsumer {
 
+    /*
     @Autowired
     private InventoryProducer inventoryProducer;
 
@@ -34,7 +25,8 @@ public class InventoryConsumer {
         var getRequest = collectGoodsConsumerRecord.value();
         var inventory = inventoryRepository.findByGoods(getRequest.goods());
         if (inventory == null) {
-            inventoryProducer.failed(new CollectingGoodsFailed(getRequest.requestId(), String.format("There's no such goods as %s", getRequest.goods())));
+            inventoryProducer.failed(new CollectingGoodsFailed(getRequest.requestId(), String.format("There's no such
+             goods as %s", getRequest.goods())));
         } else if (inventory.quantity() < getRequest.quantity()) {
             inventoryProducer.failed(new CollectingGoodsFailed(getRequest.requestId()
                     , String.format("Not enough goods %s in inventory (requested %s but inventory has %s)"
@@ -46,7 +38,7 @@ public class InventoryConsumer {
         }
     }
 
-    /*
+
     @KafkaListener(topics = "inventory.events.getting.succeeded")
     public void listenSucceeded(ConsumerRecord<String, GettingGoodsSucceeded> gettingGoodsSucceededConsumerRecord) {
         // do nothing
