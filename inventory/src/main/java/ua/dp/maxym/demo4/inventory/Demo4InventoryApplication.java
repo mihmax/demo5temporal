@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import ua.dp.maxym.demo4.inventory.domain.Inventory;
 import ua.dp.maxym.demo4.inventory.domain.InventoryRepository;
 
+import java.math.BigDecimal;
+
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"ua.dp.maxym.demo4"})
@@ -21,8 +23,8 @@ public class Demo4InventoryApplication {
     @PostConstruct
     public void init() {
         inventoryRepository.deleteAll();
-        inventoryRepository.insert(new Inventory("item1", 10));
-        inventoryRepository.insert(new Inventory("item2", 5));
+        inventoryRepository.insert(new Inventory("item1", 10, BigDecimal.valueOf(100.0)));
+        inventoryRepository.insert(new Inventory("item2", 5, BigDecimal.valueOf(10.0)));
     }
 
     public static void main(String[] args) {

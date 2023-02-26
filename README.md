@@ -16,6 +16,6 @@ Demo project for ordering stuff with a simple Ordering Saga utilizing  [Temporal
 * You can monitor Saga progress by opening Temporal Web UI at http://127.0.0.1:8080
 * Open the services
   * [Shipment Service](http://localhost:8082) -- TODO: it's not used in Saga yet
-  * [Inventory Service](http://localhost:8084) -- TODO: it's not used in Saga yet
+  * [Inventory Service](http://localhost:8084) - used only to get item price
   * [Payment Service](http://localhost:8083) to see remaining user credit
   * Main [Order Service](http://localhost:8081) to create orders and employ the Saga that uses Temporal

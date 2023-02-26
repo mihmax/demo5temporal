@@ -71,10 +71,10 @@ public class OrderController {
         Optional<Order> orderOptional = orderRepository.findById(orderId);
         if (orderOptional.isPresent()) {
             Order order = orderOptional.get();
-            return switch (order.status()) {
-                case NOT_STARTED, INITIATED, SUCCEEDED -> order.status().toString();
+            return switch (order.getStatus()) {
+                case NOT_STARTED, INITIATED, SUCCEEDED -> order.getStatus().toString();
                 case REVERT_INITIATED, FAILED ->
-                        String.format("%s with reason %s", order.status(), order.statusReason());
+                        String.format("%s with reason %s", order.getStatus(), order.getStatusReason());
             };
         } else {
             return """
