@@ -3,7 +3,7 @@
 Demo project for ordering stuff with a simple Ordering Saga utilizing  [Temporal](https://temporal.io) system and [Temporal Java SDK](https://github.com/temporalio/sdk-java) to code for possible compensation in case ordering process fails mid-step.
 
 * By [Maxym Mykhalchuk](https://blog.maxym.dp.ua), see [license](LICENSE)
-* Uses parts of [Temporal Docker Cluster images](https://github.com/temporalio/docker-compose), see [license](TEMPORAL-DOCK-LICENSE)
+* Contains parts of [Temporal Docker Cluster images](https://github.com/temporalio/docker-compose), see [license](TEMPORAL-DOCK-LICENSE)
 * Built on Spring Boot 3 / Spring Framework 6
 * REST microservices (no CQRS/Event-Sourcing)
 * Uses MongoDB as storage
